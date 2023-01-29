@@ -1,1 +1,8 @@
 This is class note for C++ beginning course
+
+Bitwise Operators
+& and //both are 1, & is 1
+: or //only and both 1, : is 1
+^ x -or // only 1, ^ is 1  both 1, ^ is 0
+<< // 00000101 <<1 = 00001010 mutiply by 2 in binary
+>> // 00001010 >>1 = 00000101 divided by 2 in binary
