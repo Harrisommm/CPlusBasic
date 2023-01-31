@@ -1,13 +1,13 @@
 This is class note for C++ beginning course
 
-Bitwise Operators
+#BITWISE OPERATORS
 & and //both are 1, & is 1
 | or //only and both 1, : is 1
 ^ x -or // only 1, ^ is 1  both 1, ^ is 0
 << // 00000101 <<1 = 00001010 mutiply by 2 in binary
 >> // 00001010 >>1 = 00000101 divided by 2 in binary
 
-Enum and Typedef
+#ENUM
 enum day {mon, tue, wed ...} // automatically assign from 0-6
 or enum day {mon = 1, tue, ....}
 int main()
@@ -17,7 +17,7 @@ int main()
     if(d == mon)
 }
 
-Typedef
+#TYPEDEF
 easy to remember variable names
 more readable
 
@@ -27,7 +27,28 @@ int main()
     marks m1,m2,m3;
 }
 
-LOGICAL OPERATORS
+#LOGICAL OPERATORS
 && and, when both are true = true
-|| or, True+true =true, true+false =true
+|| or, true + true = true, true + false = true
 ! not
+
+#SHORT CIRCUIT
+if( a > b && a > c) // if (a > b) is false, (a > c) will not be  executed
+if( a > b || a > c) // if (a > b) is true, (a > c) will not be  executed
+
+#DYNAMIC DECLARATION
+for(int i = 2, i < 10, i ++) // i can be declared in condition, but limited to the block
+{
+
+} 
+cout << i; //undeclared, out of block
+
+#SWITCH CASE
+swtich(expr) //expr can be int/char
+{
+    case 1: ____; //or case 'a': if expr is char
+        break; //if there are no break, case1, case2 will be executed
+    case 2: ____;
+        break;
+    default: cout << "invalid input" //optional, can be in anywhere
+}
