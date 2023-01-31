@@ -2,6 +2,7 @@
 
 int main()
 {
+    /*
     int x = 4, y = 5;
     if(x>y)
     {
@@ -15,6 +16,10 @@ int main()
     {
         std::cout << "equal" << std::endl;
     }
+    */
+    int test = 10/3;
+    std::cout << test;
+    std::cout << "Hello are you there";
 
     return 0;
 }
