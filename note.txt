@@ -29,5 +29,5 @@ int main()
 
 LOGICAL OPERATORS
 && and, when both are true = true
-|| or
+|| or, True+true =true, true+false =true
 ! not
