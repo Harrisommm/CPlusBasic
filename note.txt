@@ -26,3 +26,8 @@ int main()
 {
     marks m1,m2,m3;
 }
+
+LOGICAL OPERATORS
+&& and, when both are true = true
+|| or
+! not
