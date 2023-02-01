@@ -2,7 +2,7 @@
 Repository for C++ Beginning course
 
 ## Class note
-Class note read.me
+Class note.txt
   
 ## In-class Codes
 in-class C++ codes cpp files
