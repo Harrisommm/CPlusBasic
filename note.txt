@@ -52,3 +52,19 @@ swtich(expr) //expr can be int/char
         break;
     default: cout << "invalid input" //optional, can be in anywhere
 }
+
+#LOOP/ITERATE STATEMENT
+while(<condition>) //check condition and process
+{
+    process;
+}
+
+do //first process and check condition
+{
+    process;    
+}while(<condition>);
+
+for(initialization; condition; updation)
+{
+    process;
+}
