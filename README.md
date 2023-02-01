@@ -5,4 +5,4 @@ Repository for C++ Beginning course
 Class note.txt
   
 ## In-class Codes
-in-class C++ codes cpp files
+in-class C++ practice codes.cpp
