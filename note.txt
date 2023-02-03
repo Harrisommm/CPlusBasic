@@ -152,7 +152,7 @@ std::cout << x; //10
 std::cout << &x; //200 //address of x
 std::cout << p; //200 //address of x
 std::cout << &p; //300 //address of p
-std::cout << *p; //data p is pointing
+std::cout << *p; //10, data p is pointing
 
 int *p; //declaration
 p = &x; //initializtion
