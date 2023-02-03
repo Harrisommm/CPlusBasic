@@ -180,3 +180,54 @@ stack array automatically deleted whe its out of scope
 heap array stays there while program run should delete []p;
 
 if not deleted -> memory leak problem
+
+POINTER PROBLEMS
+1.uninitialized ptr
+problem
+{
+    int *p; //not pointing, invalid address
+    *p = 25;
+}
+solution
+{
+    int x; //existing variable
+    int *p;
+    p = &x;
+
+    or
+
+    p = (int*)0*5638// assign to known address
+
+    or
+
+    p = new int(5); //heap memory
+}
+
+2.memory leak //should deallocated
+{
+    int *p = new int[5];
+    delete []p
+    p = NULL //or p=0; or p=nullptr;
+}
+
+3.dangling ptr
+void main()
+{
+    int *p = new int[5];
+    fun(p);
+
+    cout << *p; //runtime error, q deleted heap memory
+}
+void fun(int *q)
+{
+    delete[]q;
+}
+
+REFERENCE
+main()
+{
+    int x =10;
+    int &y = x; //reference, alias, must be initialized, doens't consume memory
+    x++; //output = 11
+    y++; //output = 12
+}
