@@ -25,7 +25,7 @@ int main()
     */
     int A[]={2,4,6,8,10,12};
     int *p = A;
-    
+    std::cout << *p << std::endl;
 
     return 0;
 }
