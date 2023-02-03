@@ -6,3 +6,6 @@ Class note read.me
 
 ## In-class Codes
 in-class C++ codes cpp files
+
+## Course progress
+Feb3 2023: Heap memory allocation
