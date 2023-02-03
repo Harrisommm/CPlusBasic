@@ -8,4 +8,4 @@ Class note.txt
 in-class C++ practice codes.cpp
 
 ## Course progress
-Feb3 2023: Heap memory allocation
+Feb3 2023: Heap memory allocation, Dynamic allocation
