@@ -152,6 +152,18 @@ std::cout << x; //10
 std::cout << &x; //200 //address of x
 std::cout << p; //200 //address of x
 std::cout << &p; //300 //address of p
-std::cout <<*p; //data p is pointing
+std::cout << *p; //data p is pointing
 
+int *p; //declaration
+p = &x; //initializtion
+cout << *p; //dereferencing
 
+why use pointers?
+-to access heap, code -> stack -> heap
+
+HEAP MEMORY ALLOCATION
+main()
+{
+    int A[5] = {1,2,3,4,5}; //array initialization in stack
+    int *p; //also in stack
+}
