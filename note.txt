@@ -167,4 +167,16 @@ main()
     int A[5] = {1,2,3,4,5}; //array initialization in stack
     int *p; //also in stack
     p = new int[5]; //array in heap, adress of array is in heap
+    int *p = new int[5];
+    p[2] = 15; //acccess heap array
+
+    *p = nullptr; //null pointer
+    delete []p; //must go this order, or memory leak
+
 }
+
+Difference heap array and stack array
+stack array automatically deleted whe its out of scope
+heap array stays there while program run should delete []p;
+
+if not deleted -> memory leak problem
