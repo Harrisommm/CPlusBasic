@@ -23,6 +23,5 @@ int main()
 
     //Draw Pattern given in description for n x n dimensions
 
-
     return 0;
 }
