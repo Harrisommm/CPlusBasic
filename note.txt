@@ -168,3 +168,8 @@ main()
     int *p; //also in stack
     p = new int[5]; //array in heap, adress of array is in heap
 }
+
+int *q /= &A[3];
+p++ //pointer to next location, 201 to 202
+p-- //pointer to previous location, 201 to 200
+p= p+2
