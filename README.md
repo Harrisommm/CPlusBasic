@@ -10,4 +10,4 @@ in-class C++ practice codes.cpp
 ## Course progress
 2023-
 Feb 3: Heap memory allocation, Dynamic allocation, Reference
-Feb 4:
+Feb 4: pointer repeat, 
