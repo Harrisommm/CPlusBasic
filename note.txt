@@ -152,7 +152,7 @@ std::cout << x; //10
 std::cout << &x; //200 //address of x
 std::cout << p; //200 //address of x
 std::cout << &p; //300 //address of p
-std::cout << *p; //data p is pointing
+std::cout << *p; //10, data p is pointing
 
 int *p; //declaration
 p = &x; //initializtion
@@ -167,9 +167,145 @@ main()
     int A[5] = {1,2,3,4,5}; //array initialization in stack
     int *p; //also in stack
     p = new int[5]; //array in heap, adress of array is in heap
+    int *p = new int[5];
+    p[2] = 15; //acccess heap array
+
+    *p = nullptr; //null pointer
+    delete []p; //must go this order, or memory leak
+
 }
 
-int *q /= &A[3];
-p++ //pointer to next location, 201 to 202
-p-- //pointer to previous location, 201 to 200
-p= p+2
+Difference heap array and stack array
+stack array automatically deleted whe its out of scope
+heap array stays there while program run should delete []p;
+
+if not deleted -> memory leak problem
+
+POINTER ARITHMETIC
+1. p++; //next, depend on data type, int 2byte, float 4byte, char 1byte
+2. p--;
+3. p = p+2;
+4. p = p-2;
+5. d = q-p; //distance between two pointer
+
+POINTER PROBLEMS
+1.uninitialized ptr
+problem
+{
+    int *p; //not pointing, invalid address
+    *p = 25;
+}
+solution
+{
+    int x; //existing variable
+    int *p;
+    p = &x;
+
+    or
+
+    p = (int*)0*5638// assign to known address
+
+    or
+
+    p = new int(5); //heap memory
+}
+
+2.memory leak //should deallocated
+{
+    int *p = new int[5];
+    delete []p
+    p = NULL //or p=0; or p=nullptr;
+}
+
+3.dangling ptr
+void main()
+{
+    int *p = new int[5];
+    fun(p);
+
+    cout << *p; //runtime error, q deleted heap memory
+}
+void fun(int *q)
+{
+    delete[]q;
+}
+
+REFERENCE
+main()
+{
+    int x =10;
+    int &y = x; //reference, alias, must be initialized, doens't consume memory
+    x++; //output = 11
+    y++; //output = 12
+}
+
+STRING
+collection of character
+
+1. using char array
+char x = 'A'; //A
+char S[10] = "Hello"; //Hello\0_-_-
+\0 //null character, string terminator
+char S[] = "Hello"; //Hello\0
+char S[] = {'H','e','l','l','o','\0'}; //without \0, it is not string
+char S[] = {65,66,67,68,'\0'}; //ABCD\0
+char *S = "Hello"; //string inside heap
+
+READING AND PRINTING STRING
+char s[20];
+cout << "Name";
+cin.get(s,50); //when using multiple cin, get function only accept 1st
+cin.ignore(); //ignore any extra char remaining in keyboard
+
+cin.getline(s,50);
+
+FUNCTIONS IN string.h/<cstring>
+1. strlen(str1) //length of string
+char s[50] = "Hello";
+cout << strlen(s); // 5
+
+2. strcat(destination, source); strncat(destination, source, length); //concaternate
+char s1[20] = "Good";
+char s2[20] = "Morning";
+cout << strcat(s1,s2); //GoodMorning
+
+3. strcpy(destination, source); strncpy(destination, source, length) //copy
+char s1[20] = "Good";
+char s2[20] = "";
+strcpy(s2,s1); //copied
+
+4. strstr(main, sub); //substring
+char s1[20] = "Programming";
+char s2[20] = "gram";
+cout << strstr(s1,s2); //gramming, cout can't display null, if crashes runtime error
+
+5. strchr(main,char); strrchar(main,char); // string starting from <char>
+char s1[20] = "Programming";
+cout << strchr(s1,'g'); // gramming
+cout << strrchar(s1,'r'); //ramming
+
+6. strcmp(str1,str2) //compare ASKII value, when s2 is bigger, result is negative
+char s1[20] = "hello";
+char s2[20] = "Hello";
+cout << strcmp(s1,s2); //32, the difference between h(104) and H(72)
+
+7. strtol(str1); //string to long int
+char s1[20] = "234";
+long int x = strtol(s1,NULL,10); //NULL: parameter, 10: base decimal
+
+8. strtof(str1, NULL); //string to float
+char s2[20] = "54.78";
+float y = strtof(s2,NULL)
+
+9. strtok(str1,"=;"); //tokenizer
+char s1[20] = "x=10;y=20;z=35";
+strtok(s1,"=;"); //only x
+
+char *token = strtok(s1,"=;")
+while(token != NUll)
+{
+    cout << token << endl; //x 10 y 20 z 35
+    token = strtok(s1,"=;"); 
+}
+
+2. class string
