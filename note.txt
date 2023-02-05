@@ -314,10 +314,16 @@ string str; //object, self-manage string
 getline(cin,str); //accept multiple line 
 
 FUNCTIONS OF STRING CLASS
-s.length() //length
+s.length() //length, doesn't work on NULL
 s.size()
 s.capacity()
 s.resize()
-s.max_size()
-s.clear()
-s.empty()
+s.max_size() //what is a maximum size it can have
+s.clear() //clear string, empty
+s.empty() //t or f, empty or not
+
+s.append("str") //added at the end
+s.insert(3,"str")
+s.replace(3,5,"str")
+s.erase()
+s.push_back('str')
