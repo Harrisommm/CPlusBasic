@@ -308,7 +308,6 @@ while(token != NUll)
     token = strtok(s1,"=;"); 
 }
 
-
 2. class string
 #include<string>
 string str; //object, self-manage string 
