@@ -310,3 +310,15 @@ while(token != NUll)
 
 
 2. class string
+#include<string>
+string str; //object, self-manage string 
+getline(cin,str); //accept multiple line 
+
+FUNCTIONS OF STRING CLASS
+s.length()
+s.size()
+s.capacity()
+s.resize()
+s.max_size()
+s.clear()
+s.empty()
