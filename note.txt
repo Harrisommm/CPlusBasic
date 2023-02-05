@@ -315,7 +315,7 @@ string str; //object, self-manage string
 getline(cin,str); //accept multiple line 
 
 FUNCTIONS OF STRING CLASS
-s.length()
+s.length() //length
 s.size()
 s.capacity()
 s.resize()
