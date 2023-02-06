@@ -323,7 +323,14 @@ s.clear() //clear string, empty
 s.empty() //t or f, empty or not
 
 s.append("str") //added at the end
-s.insert(3,"str")
-s.replace(3,5,"str")
-s.erase()
-s.push_back('str')
+s.insert(address,"str"); s.insert(address,"str",no of chr to add)
+s.replace(a,b,"str") //from a to b replace with str
+s.erase() //clear
+s.push_back('str') //add str at the end of str
+s.pop_back() //take away the last str
+s1.swap(s2)
+s.copy(char des[]) //copy a str into string array
+    string s = "A";
+    char str[10];
+    s.copy(str,s.length());
+s.find(str) or char
