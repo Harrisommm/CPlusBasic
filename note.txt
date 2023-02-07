@@ -334,3 +334,16 @@ s.copy(char des[]) //copy a str into string array
     char str[10];
     s.copy(str,s.length());
 s.find(str) or char
+s.rfind(str) //find from behind
+s.find_first_of()
+s.find_last_of()
+s.substr(start,number)
+s,compare(str)
+
+ITERATOR
+string::iterator it;
+for( it = str.begin(); it!=str.end(); it++)
+begin()
+rbegin()
+end()
+rend()
