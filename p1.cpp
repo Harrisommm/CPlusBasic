@@ -1,31 +1,82 @@
 #include <iostream>
+#include <string>
 
 int main()
 {   
-
-
     /*
-    for(int i=0; i<5; i++)
+    std::string str = "today";
+    std::string::iterator it;
+    int count = 0;
+
+    for(it = str.begin(); it !=str.end(); it++)
     {
-        for(int j=0; j<5; j++)
+        *it = *it-32;
+    }
+    std::cout << str << "Hello ";
+
+    std::string str2 = "WeLcOmE5";
+    for(int j=0; str2[j]!='\0'; j++)
+    {
+        if(str2[j]>=97 && str2[j] <=122)
         {
-            if((i+j)<=4)
+            str2[j] -= 32;
+        }
+        
+    }
+    std::cout << str2; 
+    
+    int v=0, s=0, c=0;
+    std::string str = "how    Many Words";
+    for (int i=0; str[i]!='\0'; i++)
+    {
+        if(str[i] == 'a'|| str[i] == 'A'|| str[i] == 'e'||str[i] == 'E'||str[i] == 'i'||str[i] == 'I'||str[i] == 'o'||str[i] == 'O'||str[i] == 'u'||str[i] == 'U')
+        {
+            v++;
+        }
+        else if(str[i] == ' ')
+        {
+            if(str[i] == ' ' && str[i+1] == ' ')
             {
-                std::cout << "* ";
+                
             }
             else
             {
-                std::cout << "  ";
+                s++;
+
             }
         }
-        std::cout << std::endl;
+        else
+        {
+            c++;
+        }
     }
-
-    //Draw Pattern given in description for n x n dimensions
+    std::cout << "vowel:" << v << " conso:" << c << " space:" << s+1 << std::endl;
+    
+    std::string str1 = "holiday";
+    std::string str2 = "";
+    int len = (int)str1.length();
+    str2.resize(len);
+    for(int i=0, j=len-1; i<len; i++,j--)
+    {
+        str2[i] = str1[j];
+    }
+    str2[len] = '\0';
+    std::cout << str2;
+    if(str1.compare(str2)==0)
+    {
+        std::cout<<"same";;
+    }
+    else
+    {
+        std::cout<<"diff";
+    }
     */
-    int A[]={2,4,6,8,10,12};
-    int *p = A;
-    std::cout << A << std::endl;
+    std::string email = "wootak95@gmail.com";
+    int i = email.find('@');
+    std::string sub = email.substr(0,i);
+    std::cout <<sub;
+    
+
 
     return 0;
 }
