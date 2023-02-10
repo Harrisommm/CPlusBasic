@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
 
+/*
 int main()
 {   
-    /*
+    
     std::string str = "today";
     std::string::iterator it;
     int count = 0;
@@ -70,13 +71,37 @@ int main()
     {
         std::cout<<"diff";
     }
-    */
+    
     std::string email = "wootak95@gmail.com";
     int i = email.find('@');
     std::string sub = email.substr(0,i);
     std::cout <<sub;
     
 
-
     return 0;
 }
+*/
+int Search(int A[], int n, int key)
+{
+    for(int i=0; i<n; i++)
+    {
+        if(key == A[i])
+        {
+            return i;
+        }
+    
+    }
+}
+int main()
+{
+	int A[]={2,4,5,7,10,9,13};
+    int k;
+    std::cout<<"Enter an Element to be Searched:";
+    std::cin>>k;
+    int index=Search(A,7,k);
+
+    std::cout<<"Element found at index :"<<index<<std::endl;
+    return 0;
+}
+
+
