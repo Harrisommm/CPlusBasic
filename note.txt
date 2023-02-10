@@ -357,3 +357,38 @@ T max(T x, T y) //x and y must be same data type
         return x;
     }
 }
+
+DEFAULT ARGUMENT
+int add(int x, int y, int z =0) //z is optional
+{
+
+}
+
+PARAMETER PASSING METHODS
+1. pass by value
+2. pass by address
+void swap(int *a, int *b)
+{
+    int temp;
+    temp = *a; //*a=10
+    *a = *b; //*b=20
+    *b = temp; //temp=10
+}
+int main()
+{
+    swap(&x,&y); //value has changed
+
+}
+3. pass by reference //actual parameter is modified
+void swap(int &a,int &b)
+{
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
+int main()
+{
+    int x = 10, y = 20;
+    swap(x,y);
+}
