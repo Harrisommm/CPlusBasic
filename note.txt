@@ -392,3 +392,43 @@ int main()
     int x = 10, y = 20;
     swap(x,y);
 }
+
+RETURN BY REFERENCE
+int & fun(int &a) //it will return the reference, not the value
+{
+    cout << a;
+    return a;
+}                
+main()
+{
+    int x = 10;
+    fun(x) = 25; //the function is acting as a reference of variable x
+}
+
+GLOBAL VS LOCAL VARIABLES
+int g = 0; //outside function. global variable, can be used anywhere
+           //as long as programis running, exist in memory, inside the code section, created in running time
+void fun()
+{
+    int a = 5; //local
+    g = g + a; 
+}
+STATIC VARIABLES
+void fun()
+{
+    static int v = 0; //only be accesible in void fun, but always in the memory like global
+    int a = 5;
+    v++;
+    cout << a << " " << v; 
+}
+
+RECURSIVE FUNCTION //function calling itself
+void fun(int n)
+{
+    if(n>0)
+    {
+        cout << n << endl;
+        fun(n-1);
+    }
+}
+
