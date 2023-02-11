@@ -432,3 +432,14 @@ void fun(int n)
     }
 }
 
+POINTER TO A FUNCTION
+int display(int x, int x)
+{
+    cout << "Hello"
+}
+int main()
+{
+    int (*fp)(int, int); //function pointer, declaration
+    fp = display; //address of function in pointer, initialization
+    (*fp)(10,5); //function call
+}
