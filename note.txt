@@ -309,3 +309,143 @@ while(token != NUll)
 }
 
 2. class string
+#include<string>
+string str; //object, self-manage string 
+getline(cin,str); //accept multiple line 
+
+FUNCTIONS OF STRING CLASS
+s.length() //length, doesn't work on NULL
+s.size()
+s.capacity()
+s.resize()
+s.max_size() //what is a maximum size it can have
+s.clear() //clear string, empty
+s.empty() //t or f, empty or not
+
+s.append("str") //added at the end
+s.insert(address,"str"); s.insert(address,"str",no of chr to add)
+s.replace(a,b,"str") //from a to b replace with str
+s.erase() //clear
+s.push_back('str') //add str at the end of str
+s.pop_back() //take away the last str
+s1.swap(s2)
+s.copy(char des[]) //copy a str into string array
+    string s = "A";
+    char str[10];
+    s.copy(str,s.length());
+s.find(str) or char
+s.rfind(str) //find from behind
+s.find_first_of()
+s.find_last_of()
+s.substr(start,number)
+s,compare(str)
+
+ITERATOR
+string::iterator it;
+for( it = str.begin(); it!=str.end(); it++)
+begin()
+rbegin()
+end()
+rend()
+
+FUNCTION TEMPLATES
+template <class T>
+T max(T x, T y) //x and y must be same data type
+{
+    if(x>y)
+    {
+        return x;
+    }
+}
+
+DEFAULT ARGUMENT
+int add(int x, int y, int z =0) //z is optional
+{
+
+}
+
+PARAMETER PASSING METHODS
+1. pass by value
+2. pass by address
+void swap(int *a, int *b)
+{
+    int temp;
+    temp = *a; //*a=10
+    *a = *b; //*b=20
+    *b = temp; //temp=10
+}
+int main()
+{
+    swap(&x,&y); //value has changed
+
+}
+3. pass by reference //actual parameter is modified
+void swap(int &a,int &b)
+{
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
+int main()
+{
+    int x = 10, y = 20;
+    swap(x,y);
+}
+
+RETURN BY REFERENCE
+int & fun(int &a) //it will return the reference, not the value
+{
+    cout << a;
+    return a;
+}                
+main()
+{
+    int x = 10;
+    fun(x) = 25; //the function is acting as a reference of variable x
+}
+
+GLOBAL VS LOCAL VARIABLES
+int g = 0; //outside function. global variable, can be used anywhere
+           //as long as programis running, exist in memory, inside the code section, created in running time
+void fun()
+{
+    int a = 5; //local
+    g = g + a; 
+}
+STATIC VARIABLES
+void fun()
+{
+    static int v = 0; //only be accesible in void fun, but always in the memory like global
+    int a = 5;
+    v++;
+    cout << a << " " << v; 
+}
+
+RECURSIVE FUNCTION //function calling itself
+void fun(int n)
+{
+    if(n>0)
+    {
+        cout << n << endl;
+        fun(n-1);
+    }
+}
+
+POINTER TO A FUNCTION
+int display(int x, int x)
+{
+    cout << "Hello"
+}
+int main()
+{
+    int (*fp)(int, int); //function pointer, declaration
+    fp = display; //address of function in pointer, initialization
+    (*fp)(10,5); //function call
+}
+
+PRINCIPLES OF OBJECT-ORIENTATION
+1. Abstraction //hidden parts
+2. Encapsulation //
+3. Inherutance
+4. Polymorphism
