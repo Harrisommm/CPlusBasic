@@ -445,7 +445,80 @@ int main()
 }
 
 PRINCIPLES OF OBJECT-ORIENTATION
-1. Abstraction //hidden parts
+1. Abstraction //hide internal detials
 2. Encapsulation //
 3. Inherutance
 4. Polymorphism
+
+
+POINTER TO AN OBJECT IN HEAP
+int main()
+{
+    Rectangle r1;
+    Rectangle *ptr;
+    ptr = &r1;
+    pte -> length = 10;
+    ptr -> breadth = 5;
+    cout << ptr -> area() << endl;
+}
+void main()
+{
+    Rectangle *p;
+    p = new Rectangle;
+    Rectangle *q = new Rectangle();
+    p -> length = 10;
+}
+
+CONSTRUCTORS
+1.default constructor
+2.non-parameterized "
+Rectangle r();
+3.pameterized "
+Rectangle (int l, int b);
+
+Rectangle r(10,5);
+
+4.copy "
+Rectangle (Rectangle &r)
+{
+    length = r.length;
+    breadth = r.breadth;
+}
+Rectangle r2(r);
+
+SCOPE RESOLUTION OPERATOR
+int Rectangle::parameter() //separate function
+{
+    return 2*(length+breadth)
+}
+
+int getLength(){return length;} 
+void setLength(intl);
+
+INLINE FUNCTION
+class TEMPLATES
+{
+    public:
+    void fun1() //inside the class,part of main
+    {
+        cout << "Inline";
+    }
+    void fun2();
+    //inline void fun2(); makes it inline
+};
+void Test::fun2() //outside of class
+{
+    cout << "non-inline";
+}
+
+THIS POINTER
+class Rectangle
+{
+private:
+    int length;
+public:
+    Rectangle(int length)
+    {
+        this -> length = length; //this -> length is private
+    }
+}
