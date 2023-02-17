@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-//this program adds rational number
+
+//this program adds two rational number
 
 class Rational
 {
@@ -18,11 +19,11 @@ public:
     {
         std::cout << nume << " / " << deno;
     }
-    friend Rational operator +(Rational c1, Rational c2);
+    friend Rational operator+(Rational c1, Rational c2);
     friend std::ostream & operator<<(std::ostream &out, Rational &c);
 };
 
-Rational operator + (Rational c1, Rational c2)
+Rational operator+(Rational c1, Rational c2)
 {
     Rational temp;
     if (c1.deno != c2.deno)
