@@ -1,45 +1,55 @@
 #include <iostream>
 #include <string>
+//this program adds rational number
 
-class Complex
+class Rational
 {
 private:
-    int real;
-    int img;
+    int nume;
+    int deno;
     
 public:
-    Complex(int r=0, int i=0)
+    Rational(int n=0, int d=0)
     {
-        real = r;
-        img = i;
+        nume = n;
+        deno = d;
     }
     void display()
     {
-        std::cout << real << "+i" << img;
+        std::cout << nume << " / " << deno;
     }
-    friend Complex operator +(Complex c1, Complex c2);
-    friend std::ostream & operator<<(std::ostream &out, Complex &c);
+    friend Rational operator +(Rational c1, Rational c2);
+    friend std::ostream & operator<<(std::ostream &out, Rational &c);
 };
 
-Complex operator + (Complex c1, Complex c2)
+Rational operator + (Rational c1, Rational c2)
 {
-    Complex temp;
-    temp.real = c1.real + c2.real;
-    temp.img = c1.img + c2.img;
-    return temp;
+    Rational temp;
+    if (c1.deno != c2.deno)
+    {
+        temp.deno = c1.deno * c2.deno;
+        temp.nume = c1.nume*c2.deno + c2.nume*c1.deno;
+        return temp;
+    }
+    else
+    {
+        temp.deno = c1.deno;
+        temp.nume = c1.nume + c2.nume;
+        return temp;
+    }
 }
 
-std::ostream & operator<<(std::ostream &out, Complex &c)
+std::ostream & operator<<(std::ostream &out, Rational &c)
 {
-    out << c.real << "+i" << c.img;
+    out << c.nume << " / " << c.deno;
     return out;
 }
 
 int main()
 {
-    Complex c1(10,5);
-    Complex c2(5,10);
-    Complex c3;
+    Rational c1(1,3);
+    Rational c2(2,5);
+    Rational c3;
     c3 = c1 + c2;
     std::cout << c3;
 }
