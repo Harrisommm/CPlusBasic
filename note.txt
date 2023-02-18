@@ -543,7 +543,7 @@ class Complex
             return temp;
         }
         //or
-        friend complex operator + (complex c1,complex c2) //friend operator
+        friend complex operator + (complex c1,complex c2) //friend operator, if using object from multiple classes
 }
 complex operator + (complex c1, complex c2) //outside class, not a part of class
 {
