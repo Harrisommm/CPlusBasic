@@ -446,6 +446,8 @@ int main()
 
 PRINCIPLES OF OBJECT-ORIENTATION
 1. Abstraction //hidden parts
-2. Encapsulation //
-3. Inherutance
+2. Encapsulation 
+3. Inheritance
 4. Polymorphism
+
+CLASS VS OBJECT
