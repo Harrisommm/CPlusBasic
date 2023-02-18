@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-//student practice10, this program adds two rational numbers
+//student practice10, this program provides class that helps add and display two rational numbers
 
 class Rational
 {
