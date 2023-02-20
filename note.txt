@@ -534,7 +534,7 @@ public:
     {
         this -> length = length; //this -> length is private
     }
-}
+};
 
 OPERATOR OVERLOADING
 C3 = C1 + C2
@@ -557,7 +557,7 @@ class Complex
         }
         //or
         friend complex operator + (complex c1,complex c2) //friend operator, if using object from multiple classes
-}
+};
 complex operator + (complex c1, complex c2) //outside class, not a part of class
 {
 
@@ -583,7 +583,7 @@ class Base
         int b;
     public:
         int c;
-}
+};
 int main()
 {
     Base x;
