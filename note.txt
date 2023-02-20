@@ -599,3 +599,17 @@ Class Derived:Base
             b=2; //yes, protected accisible
             c=4; //yes
 }
+
+WAYS OF INHERITANCE
+class Child: protected Parent //public, protected goes to protected
+class Child: private Parent //public, protected goes to private
+
+GENERALIZATION & SPECIALIZATION
+Generalization
+class Shape //general definition,to achieve Polymorphism
+class Rectangle :Shape
+class Circle :Shape
+
+Specialization
+class Parent
+class Child: Parent //function passed to child, share features
