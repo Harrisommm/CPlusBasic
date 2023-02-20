@@ -457,7 +457,7 @@ int main()
     Rectangle r1;
     Rectangle *ptr;
     ptr = &r1;
-    pte -> length = 10;
+    ptr -> length = 10;
     ptr -> breadth = 5;
     cout << ptr -> area() << endl;
 }
@@ -554,4 +554,35 @@ ostream & operator << (ostream &out, Complex &c)
 {
     out << c.real << "+i" << c.img;
     return out;
+}
+
+CONSTRUCTOR IN INHERITANCE
+Derived(int x, int a):Base (x) //passing x to base class
+{
+}
+
+ACCESS SPECIFIERS
+class Base
+{
+    private:
+        int a;
+    protected:
+        int b;
+    public:
+        int c;
+}
+int main()
+{
+    Base x;
+    x.a = 13; //no
+    x.b = 24; //no
+    x.c = 34; //yes, only public
+}
+Class Derived:Base
+{
+    public:
+        funDerived()
+            a=1; //no
+            b=2; //yes, protected accisible
+            c=4; //yes
 }
