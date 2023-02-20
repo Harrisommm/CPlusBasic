@@ -613,3 +613,21 @@ class Circle :Shape
 Specialization
 class Parent
 class Child: Parent //function passed to child, share features
+
+class Base
+{
+    public
+        void fun1();
+};
+class Derived()
+{
+    public
+        void fun2();
+};
+int main()
+{
+    base *p;
+    p = new Derived();
+    p -> fun1();
+    p -> fun2(); //can't call
+}   
