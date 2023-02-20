@@ -393,6 +393,19 @@ int main()
     swap(x,y);
 }
 
+RETURN BY ADDRESS
+int * fun(int size)
+{
+    int *p = new int [size];
+    for(int i=0; i<size; i++)
+    p[i]=i+1;
+    return p; //return pointer
+}
+main
+{
+    int *ptr = fun(5);
+}
+
 RETURN BY REFERENCE
 int & fun(int &a) //it will return the reference, not the value
 {
@@ -543,7 +556,7 @@ class Complex
             return temp;
         }
         //or
-        friend complex operator + (complex c1,complex c2) //friend operator
+        friend complex operator + (complex c1,complex c2) //friend operator, if using object from multiple classes
 }
 complex operator + (complex c1, complex c2) //outside class, not a part of class
 {
