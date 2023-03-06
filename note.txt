@@ -631,3 +631,22 @@ int main()
     p -> fun1();
     p -> fun2(); //can't call
 }   
+
+VIRTUAL FUNCTION
+class Base //Abstract class, what has virtual function
+{
+    public:
+    virtural void fun() //Virtual fuction not called
+    {
+        cout << "fun of base"
+    }
+    virtural void fun2() = 0; //pure virtual function
+};
+class Derived:public Base
+{
+    public:
+    void fun() //function overided
+    {
+        cout << "fun of derived"
+    }
+};
