@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-//student practice11, this program collects employee info and calculate their wage, salary
+//student practice 11, this program collects employee info and calculate their wage, salary
 
 class Employee
 {
