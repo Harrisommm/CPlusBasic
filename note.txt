@@ -1,0 +1,652 @@
+This is class note for C++ beginning course
+
+#BITWISE OPERATORS
+& and //both are 1, & is 1
+| or //only and both 1, : is 1
+^ x-or // only 1, ^ is 1  both 1, ^ is 0
+<< // 00000101 <<1 = 00001010 mutiply by 2 in binary
+>> // 00001010 >>1 = 00000101 divided by 2 in binary
+
+#ENUM
+enum day {mon, tue, wed ...} // automatically assign from 0-6
+or enum day {mon = 1, tue, ....}
+int main()
+{
+    day d;
+    d = mon;
+    if(d == mon)
+}
+
+#TYPEDEF
+easy to remember variable names
+more readable
+
+typedef int marks;
+int main()
+{
+    marks m1,m2,m3;
+}
+
+#LOGICAL OPERATORS
+&& and, when both are true = true
+|| or, true + true = true, true + false = true
+! not
+
+#SHORT CIRCUIT
+if(a > b && a > c) // if (a > b) is false, (a > c) will not be  executed
+if(a > b || a > c) // if (a > b) is true, (a > c) will not be  executed
+
+#DYNAMIC DECLARATION
+for(int i = 2, i < 10, i ++) // i can be declared in condition, but limited to the block
+{
+
+} 
+cout << i; //undeclared, out of block
+
+#SWITCH CASE
+swtich(expr) //expr can be int/char
+{
+    case 1: ____; //or case 'a': if expr is char
+        break; //if there are no break, case1, case2 will be executed
+    case 2: ____;
+        break;
+    default: cout << "invalid input" //optional, can be in anywhere
+}
+
+#LOOP/ITERATE STATEMENT
+while(<condition>) //check condition and process
+{
+    process;
+}
+
+do //first process and check condition
+{
+    process;    
+}while(<condition>);
+
+for(initialization; condition; updation)
+{
+    process;
+}
+
+
+#ARRAYS
+int A[10]; // doesn't work, empty A[10] = {1,2,3,4,5,6,7,8,9,10};
+std::cout << A[3] // 4
+std::cout << A //not working
+int A[];
+float A[];
+char A[5] = {'A','B', ...}
+
+FOR EACH LOOP
+
+for(int x:A) //x (for each element) in A //or auto x:A
+{
+    std::cout << x << endl;
+}
+//don't have to declare the size of an array
+
+LINEAR SEARCH
+//search key elemeny one by one
+//n time to find
+for(int i=0; i<10; i++)
+{
+    if(key==A[i])
+    {
+        cout << "key is " << i;
+        exit(0); // terminate 
+    }
+}
+cout << "key not found";
+return 0;
+BINARY SEARCH //the array need to be sorted
+int l=0, h=9, key;
+//log n time to find
+
+INT_MIN //minimum integer value
+INT_MAX //maximum "
+
+NESTED FOR LOOP
+for(int i = 0; i < 3; i++)
+{
+    for(int j = 0; j < 3; j++)
+    {
+        std::cout << i << j << std::endl;
+    }
+}
+outcome = 00 01 02 03 10 11 12 13 20 21 22 23 
+
+2D ARRAYS
+int A[2][3] = {{1,2},{2,3},{3,4}};
+for(int i=0; i<2; i++)
+{
+    for(int j=0; j<3; j++)
+    {
+        cout << A[i][j]
+    }
+    cout << endl;
+}
+
+matrix addition
+{
+    for(int j=0; j<3; j++)
+    {
+        C[i][j] = A[i][j] + B[i][j];
+    }
+    cout << endl;
+}
+
+for(auto& x:A) //& is reference
+{
+    for(int j=0; j<3; j++)
+    {
+        cout << A[i][j]
+    }
+    cout << endl;
+}
+
+#POINTERS
+1.data variable // int x=10;
+2.address variable // int *p; p=&x;
+std::cout << x; //10
+std::cout << &x; //200 //address of x
+std::cout << p; //200 //address of x
+std::cout << &p; //300 //address of p
+std::cout << *p; //10, data p is pointing
+
+int *p; //declaration
+p = &x; //initializtion
+cout << *p; //dereferencing
+
+why use pointers?
+-to access heap, code -> stack -> heap
+
+HEAP MEMORY ALLOCATION
+main()
+{
+    int A[5] = {1,2,3,4,5}; //array initialization in stack
+    int *p; //also in stack
+    p = new int[5]; //array in heap, adress of array is in heap
+    int *p = new int[5];
+    p[2] = 15; //acccess heap array
+
+    *p = nullptr; //null pointer
+    delete []p; //must go this order, or memory leak
+
+}
+
+Difference heap array and stack array
+stack array automatically deleted whe its out of scope
+heap array stays there while program run should delete []p;
+
+if not deleted -> memory leak problem
+
+POINTER ARITHMETIC
+1. p++; //next, depend on data type, int 2byte, float 4byte, char 1byte
+2. p--;
+3. p = p+2;
+4. p = p-2;
+5. d = q-p; //distance between two pointer
+
+POINTER PROBLEMS
+1.uninitialized ptr
+problem
+{
+    int *p; //not pointing, invalid address
+    *p = 25;
+}
+solution
+{
+    int x; //existing variable
+    int *p;
+    p = &x;
+
+    or
+
+    p = (int*)0*5638// assign to known address
+
+    or
+
+    p = new int(5); //heap memory
+}
+
+2.memory leak //should deallocated
+{
+    int *p = new int[5];
+    delete []p
+    p = NULL //or p=0; or p=nullptr;
+}
+
+3.dangling ptr
+void main()
+{
+    int *p = new int[5];
+    fun(p);
+
+    cout << *p; //runtime error, q deleted heap memory
+}
+void fun(int *q)
+{
+    delete[]q;
+}
+
+REFERENCE
+main()
+{
+    int x =10;
+    int &y = x; //reference, alias, must be initialized, doens't consume memory
+    x++; //output = 11
+    y++; //output = 12
+}
+
+STRING
+collection of character
+
+1. using char array
+char x = 'A'; //A
+char S[10] = "Hello"; //Hello\0_-_-
+\0 //null character, string terminator
+char S[] = "Hello"; //Hello\0
+char S[] = {'H','e','l','l','o','\0'}; //without \0, it is not string
+char S[] = {65,66,67,68,'\0'}; //ABCD\0
+char *S = "Hello"; //string inside heap
+
+READING AND PRINTING STRING
+char s[20];
+cout << "Name";
+cin.get(s,50); //when using multiple cin, get function only accept 1st
+cin.ignore(); //ignore any extra char remaining in keyboard
+
+cin.getline(s,50);
+
+FUNCTIONS IN string.h/<cstring>
+1. strlen(str1) //length of string
+char s[50] = "Hello";
+cout << strlen(s); // 5
+
+2. strcat(destination, source); strncat(destination, source, length); //concaternate
+char s1[20] = "Good";
+char s2[20] = "Morning";
+cout << strcat(s1,s2); //GoodMorning
+
+3. strcpy(destination, source); strncpy(destination, source, length) //copy
+char s1[20] = "Good";
+char s2[20] = "";
+strcpy(s2,s1); //copied
+
+4. strstr(main, sub); //substring
+char s1[20] = "Programming";
+char s2[20] = "gram";
+cout << strstr(s1,s2); //gramming, cout can't display null, if crashes runtime error
+
+5. strchr(main,char); strrchar(main,char); // string starting from <char>
+char s1[20] = "Programming";
+cout << strchr(s1,'g'); // gramming
+cout << strrchar(s1,'r'); //ramming
+
+6. strcmp(str1,str2) //compare ASKII value, when s2 is bigger, result is negative
+char s1[20] = "hello";
+char s2[20] = "Hello";
+cout << strcmp(s1,s2); //32, the difference between h(104) and H(72)
+
+7. strtol(str1); //string to long int
+char s1[20] = "234";
+long int x = strtol(s1,NULL,10); //NULL: parameter, 10: base decimal
+
+8. strtof(str1, NULL); //string to float
+char s2[20] = "54.78";
+float y = strtof(s2,NULL)
+
+9. strtok(str1,"=;"); //tokenizer
+char s1[20] = "x=10;y=20;z=35";
+strtok(s1,"=;"); //only x
+
+char *token = strtok(s1,"=;")
+while(token != NUll)
+{
+    cout << token << endl; //x 10 y 20 z 35
+    token = strtok(s1,"=;"); 
+}
+
+2. class string
+#include<string>
+string str; //object, self-manage string 
+getline(cin,str); //accept multiple line 
+
+FUNCTIONS OF STRING CLASS
+s.length() //length, doesn't work on NULL
+s.size()
+s.capacity()
+s.resize()
+s.max_size() //what is a maximum size it can have
+s.clear() //clear string, empty
+s.empty() //t or f, empty or not
+
+s.append("str") //added at the end
+s.insert(address,"str"); s.insert(address,"str",no of chr to add)
+s.replace(a,b,"str") //from a to b replace with str
+s.erase() //clear
+s.push_back('str') //add str at the end of str
+s.pop_back() //take away the last str
+s1.swap(s2)
+s.copy(char des[]) //copy a str into string array
+    string s = "A";
+    char str[10];
+    s.copy(str,s.length());
+s.find(str) or char
+s.rfind(str) //find from behind
+s.find_first_of()
+s.find_last_of()
+s.substr(start,number)
+s,compare(str)
+
+ITERATOR
+string::iterator it;
+for( it = str.begin(); it!=str.end(); it++)
+begin()
+rbegin()
+end()
+rend()
+
+FUNCTION TEMPLATES
+template <class T>
+T max(T x, T y) //x and y must be same data type
+{
+    if(x>y)
+    {
+        return x;
+    }
+}
+
+DEFAULT ARGUMENT
+int add(int x, int y, int z =0) //z is optional
+{
+
+}
+
+PARAMETER PASSING METHODS
+1. pass by value
+2. pass by address
+void swap(int *a, int *b)
+{
+    int temp;
+    temp = *a; //*a=10
+    *a = *b; //*b=20
+    *b = temp; //temp=10
+}
+int main()
+{
+    swap(&x,&y); //value has changed
+
+}
+3. pass by reference //actual parameter is modified
+void swap(int &a,int &b)
+{
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
+int main()
+{
+    int x = 10, y = 20;
+    swap(x,y);
+}
+
+RETURN BY ADDRESS
+int * fun(int size)
+{
+    int *p = new int [size];
+    for(int i=0; i<size; i++)
+    p[i]=i+1;
+    return p; //return pointer
+}
+main
+{
+    int *ptr = fun(5);
+}
+
+RETURN BY REFERENCE
+int & fun(int &a) //it will return the reference, not the value
+{
+    cout << a;
+    return a;
+}                
+main()
+{
+    int x = 10;
+    fun(x) = 25; //the function is acting as a reference of variable x
+}
+
+GLOBAL VS LOCAL VARIABLES
+int g = 0; //outside function. global variable, can be used anywhere
+           //as long as programis running, exist in memory, inside the code section, created in running time
+void fun()
+{
+    int a = 5; //local
+    g = g + a; 
+}
+STATIC VARIABLES
+void fun()
+{
+    static int v = 0; //only be accesible in void fun, but always in the memory like global
+    int a = 5;
+    v++;
+    cout << a << " " << v; 
+}
+
+RECURSIVE FUNCTION //function calling itself
+void fun(int n)
+{
+    if(n>0)
+    {
+        cout << n << endl;
+        fun(n-1);
+    }
+}
+
+POINTER TO A FUNCTION
+int display(int x, int x)
+{
+    cout << "Hello"
+}
+int main()
+{
+    int (*fp)(int, int); //function pointer, declaration
+    fp = display; //address of function in pointer, initialization
+    (*fp)(10,5); //function call
+}
+
+PRINCIPLES OF OBJECT-ORIENTATION
+1. Abstraction //hide internal detials
+2. Encapsulation //
+3. Inherutance
+4. Polymorphism
+
+
+POINTER TO AN OBJECT IN HEAP
+int main()
+{
+    Rectangle r1;
+    Rectangle *ptr;
+    ptr = &r1;
+    ptr -> length = 10;
+    ptr -> breadth = 5;
+    cout << ptr -> area() << endl;
+}
+void main()
+{
+    Rectangle *p;
+    p = new Rectangle;
+    Rectangle *q = new Rectangle();
+    p -> length = 10;
+}
+
+CONSTRUCTORS
+1.default constructor
+2.non-parameterized "
+Rectangle r();
+3.pameterized "
+Rectangle (int l, int b);
+
+Rectangle r(10,5);
+
+4.copy "
+Rectangle (Rectangle &r)
+{
+    length = r.length;
+    breadth = r.breadth;
+}
+Rectangle r2(r);
+
+SCOPE RESOLUTION OPERATOR
+int Rectangle::parameter() //separate function
+{
+    return 2*(length+breadth)
+}
+
+int getLength(){return length;} 
+void setLength(intl);
+
+INLINE FUNCTION
+class TEMPLATES
+{
+    public:
+    void fun1() //inside the class,part of main
+    {
+        cout << "Inline";
+    }
+    void fun2();
+    //inline void fun2(); makes it inline
+};
+void Test::fun2() //outside of class
+{
+    cout << "non-inline";
+}
+
+THIS POINTER
+class Rectangle
+{
+private:
+    int length;
+public:
+    Rectangle(int length)
+    {
+        this -> length = length; //this -> length is private
+    }
+};
+
+OPERATOR OVERLOADING
+C3 = C1 + C2
+class Complex
+{
+    public:
+        Complex(int r=0, int i=0)
+        {
+            real = r;
+            img = i;
+        }
+        friend ostream & operator << (ostream &out, Complex &c) //can't belong to complex class
+
+        Complex operator+(Complex x)
+        {
+            Complex temp;
+            temp.real = real + x.real;
+            temp.img = img + x.img;
+            return temp;
+        }
+        //or
+        friend complex operator + (complex c1,complex c2) //friend operator, if using object from multiple classes
+};
+complex operator + (complex c1, complex c2) //outside class, not a part of class
+{
+
+}
+
+ostream & operator << (ostream &out, Complex &c)
+{
+    out << c.real << "+i" << c.img;
+    return out;
+}
+
+CONSTRUCTOR IN INHERITANCE
+Derived(int x, int a):Base (x) //passing x to base class
+{
+}
+
+ACCESS SPECIFIERS
+class Base
+{
+    private:
+        int a;
+    protected:
+        int b;
+    public:
+        int c;
+};
+int main()
+{
+    Base x;
+    x.a = 13; //no
+    x.b = 24; //no
+    x.c = 34; //yes, only public
+}
+Class Derived:Base
+{
+    public:
+        funDerived()
+            a=1; //no
+            b=2; //yes, protected accisible
+            c=4; //yes
+}
+
+WAYS OF INHERITANCE
+class Child: protected Parent //public, protected goes to protected
+class Child: private Parent //public, protected goes to private
+
+GENERALIZATION & SPECIALIZATION
+Generalization
+class Shape //general definition,to achieve Polymorphism
+class Rectangle :Shape
+class Circle :Shape
+
+Specialization
+class Parent
+class Child: Parent //function passed to child, share features
+
+class Base
+{
+    public
+        void fun1();
+};
+class Derived()
+{
+    public
+        void fun2();
+};
+int main()
+{
+    base *p;
+    p = new Derived();
+    p -> fun1();
+    p -> fun2(); //can't call
+}   
+
+VIRTUAL FUNCTION
+class Base //Abstract class, what has virtual function
+{
+    public:
+    virtural void fun() //Virtual fuction not called
+    {
+        cout << "fun of base"
+    }
+    virtural void fun2() = 0; //pure virtual function
+};
+class Derived:public Base
+{
+    public:
+    void fun() //function overided
+    {
+        cout << "fun of derived"
+    }
+};
