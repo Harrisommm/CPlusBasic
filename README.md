@@ -4,7 +4,7 @@ Repository for C++ Beginning courses
 
 ## Class note
 
-Class note.txt
+note.txt contains notes for courses
 
 ## In-class Codes
 
